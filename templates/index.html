@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <ul>
+        {% for row in data %}
+            <li>
+                {{ row.id }} - {{ row.nome }} - {{ row.descricao }}
+                {% if row.feita %}
+                    <span style="color: green;">Concluída</span>
+                {% else %}
+                    <span style="color: red;">Não Concluída</span>
+                {% endif %}
+                <a href="/edit/{{ row.id }}">Editar</a>
+                <a href="/delete/{{ row.id }}">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/add">Adicionar Tarefa</a>
+</body>
+</html>
